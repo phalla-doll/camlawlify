@@ -1,0 +1,40 @@
+<section class="main-section">
+  <div class="container lading-section">
+    <div class="row g-4 landing-content-block">
+      <div class="col-12 col-md-7">
+        <h1 class="font-bold fs-1 mb-5">Explore the knowledge of Cambodia laws by asking or reading the law
+          articles</h1>
+        <div class="flex justify-content-between w-full mb-4">
+          <input class="form-control form-control-lg me-2 rounded-5 border-2 border-purple-800" type="text"
+                 placeholder="Search law"
+                 aria-label=".form-control-lg example">
+          <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+            <mat-icon>east</mat-icon>
+          </button>
+        </div>
+        <p class="card-text">Lorem ipsum dolor sit amet. Ut obcaecati voluptatem qui dolores iste ut veritatis nulla. Et
+          nisi rerum cum
+          unde galisum eos delectus optio eos blanditiis dolor sit reprehenderit vitae.</p>
+      </div>
+      <div class="col-12 col-md-5 d-none d-md-block">
+        <img src="assets/image/svg/informed_decision.svg" alt="informed_decision" class="w-full ">
+      </div>
+    </div>
+  </div>
+  <div class="container mb-10">
+    <div class="row g-3">
+      <div class="col-12 col-md-8 offset-md-2 text-center">
+        <h1 class="fs-3 font-bold mb-4">Recently Added Laws</h1>
+      </div>
+      <div class="col-12 col-md-4" *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+        <app-article-card></app-article-card>
+      </div>
+      <div class="col-12 d-flex justify-content-center">
+        <button mat-flat-button color="primary" class="px-4 rounded-5">View more</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
