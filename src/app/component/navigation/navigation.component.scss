@@ -1,0 +1,10 @@
+.navigation-item {
+  padding: 10px 15px;
+  font-weight: 500;
+  font-size: 90%;
+  &:hover {
+    cursor: pointer;
+    color: rgba(107, 33, 168, 1);
+    //border-bottom: 2px solid rgba(107, 33, 168, 1);
+  }
+}

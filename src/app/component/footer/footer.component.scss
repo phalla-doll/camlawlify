@@ -1,0 +1,15 @@
+.quick-link-item {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 500;
+  font-size: 90%;
+
+  &:hover {
+    color: rgba(107, 33, 168, 1);
+    text-decoration: underline;
+  }
+}
+
+.credit-text {
+  font-size: 90%;
+}
