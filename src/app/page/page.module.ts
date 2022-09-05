@@ -11,6 +11,11 @@ import { LawPageComponent } from './law-page/law-page.component';
 import { RequestLawPageComponent } from './request-law-page/request-law-page.component';
 import { AboutUsPageComponent } from './about-us-page/about-us-page.component';
 import {MatRippleModule} from "@angular/material/core";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 
 @NgModule({
@@ -27,7 +32,12 @@ import {MatRippleModule} from "@angular/material/core";
     MatButtonModule,
     MatIconModule,
     ComponentModule,
-    MatRippleModule
+    MatRippleModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatTooltipModule
   ]
 })
 export class PageModule { }

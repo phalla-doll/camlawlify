@@ -2,46 +2,158 @@
 <section class="main-section">
   <div class="container">
     <div class="row g-4 landing-content-block">
-      <div class="col-12 col-md-7">
-        <h1 class="font-bold fs-1 mb-5">Explore the knowledge of <span class="text-purple-800">Cambodia's laws</span> by
+      <div class="col-12 col-md-8 offset-md-2">
+        <h1 class="font-bold fs-2 mb-4">Explore the knowledge of <span class="text-purple-800">Cambodia's laws</span> by
           asking or reading the law
-          articles</h1>
+          article</h1>
         <div class="flex justify-content-between w-full mb-4">
-          <input class="form-control form-control-lg me-2 rounded-5 border-2 border-purple-800 focus:border-purple-800"
+          <input class="form-control form-control-lg me-2 rounded-2 border-2 border-purple-800 focus:border-purple-800"
                  type="text"
                  placeholder="Search laws of Cambodia"
                  aria-label=".form-control-lg example">
           <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
-            <mat-icon>east</mat-icon>
+            <mat-icon>search</mat-icon>
           </button>
         </div>
         <p class="card-text">Lorem ipsum dolor sit amet. Ut obcaecati voluptatem qui dolores iste ut veritatis nulla. Et
           nisi rerum cum
           unde galisum eos delectus optio eos blanditiis dolor sit reprehenderit vitae.</p>
       </div>
-      <div class="col-12 col-md-5 d-none d-md-block">
-        <img src="assets/image/svg/book_lover.svg" alt="book_lover" class="w-full ">
-      </div>
     </div>
   </div>
   <div class="container mb-10">
     <div class="row g-3">
-      <div class="col-12 col-md-8 offset-md-2 text-center">
-        <h1 class="fs-3 font-bold mb-4">Recently Added Laws</h1>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4" *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
-        <app-article-card></app-article-card>
-      </div>
-      <div class="col-12 d-flex justify-content-center">
-        <div class="my-4">
-          <button mat-ripple
-                  class="px-4 fw-semibold btn btn-md btn-outline-primary border-purple-800 border-2 text-purple-800 rounded-3 hover:bg-purple-800 hover:border-purple-800 active:bg-purple-800">
-            View more
-          </button>
+      <div class="col-12">
+        <div class="row g-3 border-y">
+          <div class="col-12">
+            <h5 class="fw-semibold">Advanced Filters</h5>
+          </div>
+          <div class="col-12 col-md-3">
+            <form class="example-form">
+              <mat-form-field class="w-full" appearance="fill">
+                <mat-label>Department</mat-label>
+                <input type="text"
+                       placeholder="Pick one"
+                       aria-label="Number"
+                       matInput
+                       [formControl]="myControl"
+                       [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            </form>
+          </div>
+          <div class="col-12 col-md-3">
+            <form class="example-form">
+              <mat-form-field class="w-full" appearance="fill">
+                <mat-label>Category</mat-label>
+                <input type="text"
+                       placeholder="Pick one"
+                       aria-label="Number"
+                       matInput
+                       [formControl]="myControl"
+                       [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            </form>
+          </div>
+          <div class="col-12 col-md-3">
+            <form class="example-form">
+              <mat-form-field class="w-full" appearance="fill">
+                <mat-label>Type</mat-label>
+                <input type="text"
+                       placeholder="Pick one"
+                       aria-label="Number"
+                       matInput
+                       [formControl]="myControl"
+                       [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            </form>
+          </div>
+          <div class="col-12 col-md-3">
+            <form class="example-form">
+              <mat-form-field class="w-full" appearance="fill">
+                <mat-label>Sort By</mat-label>
+                <input type="text"
+                       placeholder="Pick one"
+                       aria-label="Number"
+                       matInput
+                       [formControl]="myControl"
+                       [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            </form>
+          </div>
         </div>
       </div>
+      <div class="col-12">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th class="fs-90 fw-semibold" scope="col">Department</th>
+            <th class="fs-90 fw-semibold" scope="col">Category</th>
+            <th class="fs-90 fw-semibold" scope="col">Title</th>
+            <th class="fs-90 fw-semibold" scope="col">Added Date</th>
+            <th class="fs-90 fw-semibold" scope="col"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
+            <td>Administrative</td>
+            <td>101-FLPD-889</td>
+            <td>Lorem ipsum dolor sit amet ut obcaecati voluptatem...</td>
+            <td>02 Sep 2022</td>
+            <td>
+              <div class="flex">
+                <div class="my-auto me-1">
+                  <button matRipple matTooltip="Save for later" class="btn btn-sm btn-light mb-0 hover:text-purple-800">
+                    <i class="bi bi-bookmark"></i></button>
+                </div>
+                <div class="my-auto">
+                  <button matRipple matTooltip="Open" class="btn btn-sm btn-light mb-0 hover:text-purple-800"><i
+                    class="bi bi-arrow-up-right"></i></button>
+                </div>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p class="fs-90">Displaying 10 of 2,134 results. <a class="text-primary text-decoration-underline" href="">View
+          More</a></p>
+      </div>
+      <!--      <div class="col-12 col-md-8 offset-md-2 text-center">-->
+      <!--        <h1 class="fs-3 font-bold mb-4">Recently Added Laws</h1>-->
+      <!--      </div>-->
+      <!--      <div class="col-12 col-md-6 col-lg-4" *ngFor="let i of [1,2,3,4,5,6]">-->
+      <!--        <app-article-card></app-article-card>-->
+      <!--      </div>-->
+      <!--      <div class="col-12 d-flex justify-content-center">-->
+      <!--        <div class="my-4">-->
+      <!--          <button mat-ripple-->
+      <!--                  class="px-4 fw-semibold btn btn-md btn-outline-primary border-purple-800 border-2 text-purple-800 rounded-3 hover:bg-purple-800 hover:border-purple-800 active:bg-purple-800">-->
+      <!--            View more-->
+      <!--          </button>-->
+      <!--        </div>-->
+      <!--      </div>-->
     </div>
   </div>
+
 </section>
 <app-footer></app-footer>
 

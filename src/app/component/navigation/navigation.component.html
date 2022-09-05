@@ -2,7 +2,7 @@
      [ngClass]="{'bg-white shadow-sm': scrollOffset > 20}">
   <div class="container p-3">
     <div class="flex justify-content-between">
-      <div href="" class="my-auto fw-bold hover:cursor-pointer"><i class="bi bi-recycle me-2"></i>CAM<span
+      <div routerLink="/" class="my-auto fw-bold hover:cursor-pointer"><i class="bi bi-recycle me-2"></i>CAM<span
         class="text-purple-800">LAW</span>LIFY
       </div>
       <div class="my-auto">
@@ -11,9 +11,7 @@
         </div>
         <div class="d-none d-md-block flex justify-content-between">
           <a [routerLink]="'/login'" class="navigation-item">Login</a>
-          <a [routerLink]="'/laws'" class="navigation-item">Laws</a>
-          <a [routerLink]="'/request'" class="navigation-item">Request</a>
-          <a [routerLink]="'/about-us'" class="navigation-item">About Us</a>
+          <a [routerLink]="'/about-us'" class="navigation-item">Contact</a>
         </div>
       </div>
     </div>

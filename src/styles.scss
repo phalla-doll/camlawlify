@@ -8,3 +8,10 @@ body {
   font-family: 'Inter', 'Battambang', Roboto, "Helvetica Neue", cursive, sans-serif;
   background-color: #eceeee;
 }
+.btn-check:focus + .btn, .btn:focus {
+  box-shadow: none !important;
+}
+.landing-content-block {
+  padding-top: 100px;
+  padding-bottom: 80px;
+}

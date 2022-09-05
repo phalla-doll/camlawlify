@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
+  myControl: any;
+  filteredOptions: any;
 
   constructor() { }
 
