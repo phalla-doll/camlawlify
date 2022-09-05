@@ -30,7 +30,7 @@
           </div>
           <div class="col-12 col-md-3">
             <form class="example-form">
-              <mat-form-field class="w-full" appearance="fill">
+              <mat-form-field class="w-full" appearance="outline">
                 <mat-label>Department</mat-label>
                 <input type="text"
                        placeholder="Pick one"
@@ -48,7 +48,7 @@
           </div>
           <div class="col-12 col-md-3">
             <form class="example-form">
-              <mat-form-field class="w-full" appearance="fill">
+              <mat-form-field class="w-full" appearance="outline">
                 <mat-label>Category</mat-label>
                 <input type="text"
                        placeholder="Pick one"
@@ -66,7 +66,7 @@
           </div>
           <div class="col-12 col-md-3">
             <form class="example-form">
-              <mat-form-field class="w-full" appearance="fill">
+              <mat-form-field class="w-full" appearance="outline">
                 <mat-label>Type</mat-label>
                 <input type="text"
                        placeholder="Pick one"
@@ -84,7 +84,7 @@
           </div>
           <div class="col-12 col-md-3">
             <form class="example-form">
-              <mat-form-field class="w-full" appearance="fill">
+              <mat-form-field class="w-full" appearance="outline">
                 <mat-label>Sort By</mat-label>
                 <input type="text"
                        placeholder="Pick one"
@@ -102,24 +102,21 @@
           </div>
         </div>
       </div>
-      <div class="col-12">
+      <div class="col-12 overflow-x-auto">
         <table class="table table-hover">
           <thead>
           <tr>
+            <th class="fs-90 fw-semibold" scope="col"></th>
             <th class="fs-90 fw-semibold" scope="col">Department</th>
             <th class="fs-90 fw-semibold" scope="col">Category</th>
+            <th class="fs-90 fw-semibold" scope="col">Type</th>
             <th class="fs-90 fw-semibold" scope="col">Title</th>
             <th class="fs-90 fw-semibold" scope="col">Added Date</th>
-            <th class="fs-90 fw-semibold" scope="col"></th>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
-            <td>Administrative</td>
-            <td>101-FLPD-889</td>
-            <td>Lorem ipsum dolor sit amet ut obcaecati voluptatem...</td>
-            <td>02 Sep 2022</td>
-            <td>
+            <td class="align-middle" style="max-width: 80px">
               <div class="flex">
                 <div class="my-auto me-1">
                   <button matRipple matTooltip="Save for later" class="btn btn-sm btn-light mb-0 hover:text-purple-800">
@@ -131,6 +128,11 @@
                 </div>
               </div>
             </td>
+            <td class="align-middle">Administrative</td>
+            <td class="align-middle">101-FLPD-889</td>
+            <td class="align-middle">Rule Regulation</td>
+            <td class="align-middle">Lorem ipsum dolor sit amet ut obcaecati voluptatem...</td>
+            <td class="align-middle">02 Sep 2022</td>
           </tr>
           </tbody>
         </table>
