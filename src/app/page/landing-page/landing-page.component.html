@@ -26,17 +26,16 @@
       <div class="col-12">
         <div class="row g-3 border-y">
           <div class="col-12">
-            <h5 class="fw-semibold">Advanced Filters</h5>
+            <h5 class="fw-semibold fs-90"><i class="bi bi-filter me-1"></i>Advanced Filters</h5>
           </div>
           <div class="col-12 col-md-3">
-            <form class="example-form">
+            <form class="advanced-filter-form">
               <mat-form-field class="w-full" appearance="outline">
-                <mat-label>Department</mat-label>
+                <mat-label>Subject Area</mat-label>
                 <input type="text"
                        placeholder="Pick one"
                        aria-label="Number"
                        matInput
-                       [formControl]="myControl"
                        [matAutocomplete]="auto">
                 <mat-autocomplete #auto="matAutocomplete">
                   <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
@@ -47,14 +46,13 @@
             </form>
           </div>
           <div class="col-12 col-md-3">
-            <form class="example-form">
+            <form class="advanced-filter-form">
               <mat-form-field class="w-full" appearance="outline">
-                <mat-label>Category</mat-label>
+                <mat-label>Scope</mat-label>
                 <input type="text"
                        placeholder="Pick one"
                        aria-label="Number"
                        matInput
-                       [formControl]="myControl"
                        [matAutocomplete]="auto">
                 <mat-autocomplete #auto="matAutocomplete">
                   <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
@@ -65,14 +63,13 @@
             </form>
           </div>
           <div class="col-12 col-md-3">
-            <form class="example-form">
+            <form class="advanced-filter-form">
               <mat-form-field class="w-full" appearance="outline">
                 <mat-label>Type</mat-label>
                 <input type="text"
                        placeholder="Pick one"
                        aria-label="Number"
                        matInput
-                       [formControl]="myControl"
                        [matAutocomplete]="auto">
                 <mat-autocomplete #auto="matAutocomplete">
                   <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
@@ -83,14 +80,13 @@
             </form>
           </div>
           <div class="col-12 col-md-3">
-            <form class="example-form">
+            <form class="advanced-filter-form">
               <mat-form-field class="w-full" appearance="outline">
                 <mat-label>Sort By</mat-label>
                 <input type="text"
                        placeholder="Pick one"
                        aria-label="Number"
                        matInput
-                       [formControl]="myControl"
                        [matAutocomplete]="auto">
                 <mat-autocomplete #auto="matAutocomplete">
                   <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
@@ -103,15 +99,15 @@
         </div>
       </div>
       <div class="col-12 overflow-x-auto">
-        <table class="table table-hover">
+        <table class="table table-hover fs-90">
           <thead>
           <tr>
             <th class="fs-90 fw-semibold" scope="col"></th>
             <th class="fs-90 fw-semibold" scope="col">Department</th>
-            <th class="fs-90 fw-semibold" scope="col">Category</th>
+            <th class="fs-90 fw-semibold" scope="col">Scope</th>
             <th class="fs-90 fw-semibold" scope="col">Type</th>
             <th class="fs-90 fw-semibold" scope="col">Title</th>
-            <th class="fs-90 fw-semibold" scope="col">Added Date</th>
+            <th class="fs-90 fw-semibold" scope="col">Issued Date</th>
           </tr>
           </thead>
           <tbody>
@@ -136,8 +132,13 @@
           </tr>
           </tbody>
         </table>
-        <p class="fs-90">Displaying 10 of 2,134 results. <a class="text-primary text-decoration-underline" href="">View
-          More</a></p>
+        <div class="flex justify-content-start custom-pagination">
+          <mat-paginator [length]="2134"
+                         [pageSize]="10"
+                         [pageSizeOptions]="[5, 10, 25, 100]"
+                         aria-label="Select page">
+          </mat-paginator>
+        </div>
       </div>
       <!--      <div class="col-12 col-md-8 offset-md-2 text-center">-->
       <!--        <h1 class="fs-3 font-bold mb-4">Recently Added Laws</h1>-->
