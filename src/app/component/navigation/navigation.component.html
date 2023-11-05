@@ -13,11 +13,15 @@
               <mat-icon>login</mat-icon>
               <span>Login</span>
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item (click)="onSubscription()">
               <mat-icon>currency_exchange</mat-icon>
               <span>Subscription</span>
             </button>
-            <button mat-menu-item disabled>
+            <button mat-menu-item (click)="onBookmarks()">
+              <mat-icon>bookmark</mat-icon>
+              <span>Bookmark</span>
+            </button>
+            <button mat-menu-item (click)="onContactUs()">
               <mat-icon>contact_support</mat-icon>
               <span>Contact Support</span>
             </button>

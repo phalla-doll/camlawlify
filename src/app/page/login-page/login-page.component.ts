@@ -109,6 +109,8 @@ export class LoginPageComponent implements OnInit {
 
       if (this.loginForm.get('password')?.value.trim() !== this.loginForm.get('confirmPassword')?.value.trim()) {
         this.matSnackBar.open('Password and Confirm Password must be same!', 'Okay');
+        this.isSubmitting = true;
+        this.loginForm.enable();
         return;
       }
 

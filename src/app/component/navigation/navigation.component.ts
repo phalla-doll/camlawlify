@@ -3,6 +3,8 @@ import {AuthService} from "../../share/service/auth.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MatDialog} from "@angular/material/dialog";
 import {LoginPageComponent} from "../../page/login-page/login-page.component";
+import {SubscriptionComponent} from "../../page/landing-page/subscription/subscription.component";
+import {BookmarkComponent} from "../../page/landing-page/bookmark/bookmark.component";
 
 @Component({
   selector: 'app-navigation',
@@ -43,5 +45,17 @@ export class NavigationComponent implements OnInit {
       this.user = {};
       this.matSnackBar.open(error.error.message ?? 'Unable to logout!', 'Contact Us')
     });
+  }
+
+  onContactUs(): void {
+    this.matSnackBar.open('Feature coming soon!', 'Okay');
+  }
+
+  onSubscription(): void {
+    this.matDialog.open(SubscriptionComponent, {});
+  }
+
+  onBookmarks(): void {
+    this.matDialog.open(BookmarkComponent, {});
   }
 }

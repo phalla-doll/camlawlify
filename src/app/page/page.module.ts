@@ -21,6 +21,8 @@ import { FilterComponent } from './landing-page/filter/filter.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { SubscriptionComponent } from './landing-page/subscription/subscription.component';
+import { BookmarkComponent } from './landing-page/bookmark/bookmark.component';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     RequestLawPageComponent,
     AboutUsPageComponent,
     FilterComponent,
+    SubscriptionComponent,
+    BookmarkComponent,
   ],
   imports: [
     CommonModule,
