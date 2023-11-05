@@ -1,51 +1,87 @@
-<div class="container-fluid">
-  <div class="row min-vh-100">
-    <div class="col-12 col-lg-4 offset-md-4 flex justify-content-center">
-      <div class="my-auto">
-        <div class="text-center">
-          <div routerLink="/" class="mb-3 fs-4 fw-bold hover:cursor-pointer"><i class="bi bi-recycle me-2"></i>CAM<span
-            class="text-purple-800">LAW</span>LIFY
-          </div>
-          <p class="card-text mb-3">Lorem ipsum dolor sit amet. Ut obcaecati voluptatem qui dolores iste ut veritatis
-            nulla. Et
-            nisi rerum cum unde galisum eos delectus</p>
-        </div>
-        <div class="card border-0 bg-transparent">
-          <div class="card-body">
-            <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="floatingInput" placeholder="email">
-              <label for="floatingInput">Email address</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-              <label for="floatingPassword">Password</label>
-            </div>
-            <div class="d-grid gap-2">
-              <button mat-flat-button color="primary" class="py-1">Login</button>
-            </div>
-            <p class="text-center py-3">or</p>
-            <div class="d-grid gap-2">
-              <button class="btn btn-outline-secondary py-2.5 mb-2">
-                <span class="flex justify-content-center">
-                  <span><img class="google-icon me-2"
-                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
-                             alt="Google logo"></span>
-                Login with Google
-                </span>
-              </button>
-              <button class="btn btn-outline-secondary py-2.5 mb-3">
-                <span class="flex justify-content-center">
-                  <span><img class="google-icon me-2"
-                             src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg"
-                             alt="Google logo"></span>
-                Login with Facebook
-                </span>
-              </button>
-              <p>Forgot password? Feel free to <a class="text-primary text-decoration-underline" href="">contact us</a>.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+<h3 mat-dialog-title>{{formState === 'forgot-password' ? 'Forgot your password?' : 'Join us to start exploring'}}</h3>
+<ng-container *ngIf="formState === 'forgot-password'">
+  <p class="mb-3">Enter your username or email address and we will share a link to create a new password</p>
+</ng-container>
+<div mat-dialog-content>
+  <div class="row">
+    <div class="col-12 d-grid" *ngIf="formState !== 'forgot-password'">
+      <button class="btn btn-outline-secondary py-2.5" disabled>
+          <span class="flex justify-content-center">
+            <span><img class="google-icon me-2"
+                       src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+                       alt="Google logo"></span>
+            {{formState === 'login' ? 'Login' : 'Sign up'}} with Google
+          </span>
+      </button>
+      <mat-divider class="my-4"></mat-divider>
     </div>
+    <form class="col-12" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <ng-container *ngIf="formState === 'register'">
+        <div class="form-floating mb-3">
+          <input type="text" id="firstName" formControlName="firstName" class="form-control" placeholder="firstName">
+          <label for="firstName">First Name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="lastName">
+          <label for="lastName">Last Name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" id="phone" formControlName="phone" class="form-control" placeholder="phone">
+          <label for="phone">Phone</label>
+        </div>
+      </ng-container>
+      <div class="form-floating mb-3">
+        <input type="email" id="username" formControlName="username" class="form-control" placeholder="email">
+        <label for="username">{{formState === 'register' ? 'Email' : 'Username/Email'}}</label>
+      </div>
+      <div class="form-floating mb-3" *ngIf="formState !== 'forgot-password'">
+        <input formControlName="password" id="password" type="password" class="form-control" placeholder="password">
+        <label for="password">Password</label>
+      </div>
+      <ng-container>
+        <div class="form-floating mb-3" *ngIf="formState === 'register'">
+          <input formControlName="confirmPassword" id="confirmPassword" type="password" class="form-control"
+                 placeholder="confirmPassword">
+          <label for="confirmPassword">Confirm Password</label>
+        </div>
+      </ng-container>
+      <div class="d-grid gap-2">
+        <button type="submit" [disabled]="loginForm.invalid || isSubmitting" mat-flat-button color="primary"
+                class="py-1">
+          <ng-container *ngIf="isSubmitting; else loginText">
+            <div class="d-flex justify-center">
+              <span
+                class="my-auto">{{formState === 'login' ? 'Logging in' : formState === 'forgot-password' ? 'Sending' : 'Signing up'}}</span>
+              <span class="ms-2 my-auto"><mat-spinner diameter="24"></mat-spinner></span>
+            </div>
+          </ng-container>
+          <ng-template #loginText>
+            {{formState === 'login' ? 'Login' : formState === 'forgot-password' ? 'Send' : 'Sign up'}}
+          </ng-template>
+        </button>
+      </div>
+      <div class="d-grid pt-3">
+        <a class="text-primary text-decoration-underline d-block" [ngClass]="{'text-secondary': isSubmitting}"
+           href="javascript:void(0)"
+           (click)="onChangeFormState('forgot-password')" *ngIf="formState === 'login'">Forgot
+          password</a>
+        <mat-divider class="my-3"></mat-divider>
+        <ng-container *ngIf="formState === 'login'">
+          <p class="text-center">Don't have an account yet? <a class="text-primary text-decoration-underline d-block"
+                                                               [ngClass]="{'text-secondary': isSubmitting}"
+                                                               href="javascript:void(0)"
+                                                               (click)="onChangeFormState('register')">Sign Up</a></p>
+        </ng-container>
+        <ng-container *ngIf="formState === 'register' || formState === 'forgot-password'">
+          <p class="text-center">Already have an account? <a class="text-primary text-decoration-underline d-block"
+                                                             [ngClass]="{'text-secondary': isSubmitting}"
+                                                             href="javascript:void(0)"
+                                                             (click)="onChangeFormState('login')">Login</a></p>
+        </ng-container>
+      </div>
+    </form>
   </div>
+</div>
+<div mat-dialog-actions class="justify-content-end">
+  <button mat-button mat-dialog-close [disabled]="isSubmitting">Close</button>
 </div>

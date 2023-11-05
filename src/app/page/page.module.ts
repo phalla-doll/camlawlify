@@ -13,10 +13,14 @@ import { AboutUsPageComponent } from './about-us-page/about-us-page.component';
 import {MatRippleModule} from "@angular/material/core";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import { FilterComponent } from './landing-page/filter/filter.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatDividerModule} from "@angular/material/divider";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 @NgModule({
@@ -26,6 +30,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     LawPageComponent,
     RequestLawPageComponent,
     AboutUsPageComponent,
+    FilterComponent,
   ],
   imports: [
     CommonModule,
@@ -39,7 +44,11 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatTooltipModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule,
+    FormsModule,
+    MatDividerModule,
+    MatProgressSpinnerModule,
   ]
 })
 export class PageModule { }

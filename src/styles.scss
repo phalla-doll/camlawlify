@@ -22,3 +22,6 @@ body {
     font-size: 13px;
   }
 }
+.form-control:focus {
+  box-shadow: none !important;
+}

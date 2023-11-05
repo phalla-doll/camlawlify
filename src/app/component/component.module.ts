@@ -7,6 +7,8 @@ import {RouterModule} from '@angular/router';
 import {NavigationComponent} from './navigation/navigation.component';
 import {FooterComponent} from './footer/footer.component';
 import {MatRippleModule} from "@angular/material/core";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -20,12 +22,14 @@ import {MatRippleModule} from "@angular/material/core";
     NavigationComponent,
     FooterComponent
   ],
-    imports: [
-        CommonModule,
-        MatTooltipModule,
-        RouterModule,
-        MatRippleModule,
-    ]
+  imports: [
+    CommonModule,
+    MatTooltipModule,
+    RouterModule,
+    MatRippleModule,
+    MatMenuModule,
+    MatIconModule,
+  ]
 })
 export class ComponentModule {
 }

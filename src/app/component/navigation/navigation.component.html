@@ -7,10 +7,29 @@
       </div>
       <div class="my-auto">
         <div class="d-block d-md-none">
-          <button type="button" class="btn btn-light"><i class="bi bi-three-dots-vertical"></i></button>
+          <button type="button" class="btn btn-light" [matMenuTriggerFor]="menu"><i class="bi bi-three-dots-vertical"></i></button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="onLogIn()">
+              <mat-icon>login</mat-icon>
+              <span>Login</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>currency_exchange</mat-icon>
+              <span>Subscription</span>
+            </button>
+            <button mat-menu-item disabled>
+              <mat-icon>contact_support</mat-icon>
+              <span>Contact Support</span>
+            </button>
+          </mat-menu>
         </div>
         <div class="d-none d-md-block flex justify-content-between">
-          <a [routerLink]="'/login'" class="navigation-item">Login</a>
+          <ng-container *ngIf="user && user['token'], else notLoggedIn">
+            <a (click)="onLogOut()" class="navigation-item">Log Out</a>
+          </ng-container>
+          <ng-template #notLoggedIn>
+            <a href="javascript:void(0)" (click)="onLogIn()" class="navigation-item">Login</a>
+          </ng-template>
           <a [routerLink]="'/about-us'" class="navigation-item">Contact</a>
         </div>
       </div>

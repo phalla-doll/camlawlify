@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgxLoadingModule} from "ngx-loading";
+import {HttpClientModule} from "@angular/common/http";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -15,8 +17,10 @@ import {NgxLoadingModule} from "ngx-loading";
     AppRoutingModule,
     BrowserAnimationsModule,
     NgxLoadingModule.forRoot({}),
+    HttpClientModule,
+    MatSnackBarModule,
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
